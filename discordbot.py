@@ -5,6 +5,7 @@ import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+client = commands.Client()
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -19,7 +20,7 @@ async def ping(ctx):
 
 
 
-@bot.event
+@client.event
 async def on_message(message):
     # 「おはよう」で始まるか調べる
     if message.content.startswith("おはよう"):
